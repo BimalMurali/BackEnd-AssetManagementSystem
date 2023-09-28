@@ -15,7 +15,7 @@ public class Purchase_Order {
 	private Integer id;
 	
 	@Column(name="Purchase_order_no")
-	private Integer number;
+	private String number;
 	
 	@Column(name="Asset_Type")
 	private String assetType;
@@ -56,11 +56,11 @@ public class Purchase_Order {
 		this.id = id;
 	}
 
-	public Integer getNumber() {
+	public String getNumber() {
 		return number;
 	}
 
-	public void setNumber(Integer number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 
