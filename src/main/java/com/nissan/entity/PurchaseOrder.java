@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class Purchase_Order {
+public class PurchaseOrder {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -32,7 +32,7 @@ public class Purchase_Order {
 	@Column(name="Status")
 	private String status;
 
-	public Purchase_Order(Integer id, String number, String assetType, String vendorName, Date orderDate,
+	public PurchaseOrder(Integer id, String number, String assetType, String vendorName, Date orderDate,
 			Date deliveryDate, String status) {
 		super();
 		this.id = id;
@@ -44,7 +44,7 @@ public class Purchase_Order {
 		this.status = status;
 	}
 
-	public Purchase_Order() {
+	public PurchaseOrder() {
 		
 	}
 
