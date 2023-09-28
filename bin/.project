@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-<<<<<<< HEAD
-	<name>BackEnd-AssetManagementSystem</name>
-=======
 	<name>ENIGMA</name>
->>>>>>> bfc3165c2747f67f95e8431fa809d50995fa9eda
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
-<<<<<<< HEAD
-	</buildSpec>
-	<natures>
-=======
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
@@ -23,15 +15,9 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-		<buildCommand>
-			<name>org.springframework.ide.eclipse.boot.validation.springbootbuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
->>>>>>> bfc3165c2747f67f95e8431fa809d50995fa9eda
 	</natures>
 </projectDescription>
