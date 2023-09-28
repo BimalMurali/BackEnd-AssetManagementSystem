@@ -32,7 +32,7 @@ public class Purchase_Order {
 	@Column(name="Status")
 	private String status;
 
-	public Purchase_Order(Integer id, Integer number, String assetType, String vendorName, Date orderDate,
+	public Purchase_Order(Integer id, String number, String assetType, String vendorName, Date orderDate,
 			Date deliveryDate, String status) {
 		super();
 		this.id = id;
