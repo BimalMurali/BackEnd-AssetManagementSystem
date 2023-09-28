@@ -1,4 +1,4 @@
-package com.nissan.entity;
+package com.enigma.entity;
 
 import java.util.Date;
 
