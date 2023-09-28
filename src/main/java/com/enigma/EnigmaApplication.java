@@ -8,6 +8,7 @@ public class EnigmaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EnigmaApplication.class, args);
+		System.out.println("Welcome to Enigma");
 	}
 
 }
