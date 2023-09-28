@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-
 public class VendorCreation {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
