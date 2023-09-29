@@ -12,19 +12,21 @@ public class AssetCreationServiceImple implements IAssetCreationService {
 	@Autowired
 	private IAssetCreationRepository assetRepo;
 
-	
+//	list asset
 	public List<AssetCreation> getAssetDefinition() {
 		// TODO Auto-generated method stub
 		return (List<AssetCreation>) assetRepo.findAll();
 	}
 
 
+//	save asset
 	public AssetCreation saveAsset(AssetCreation asset) {
 		return assetRepo.save(asset);
 	}
 
 
-	@Override
+
+//	delete asset by id
 	public void deleteAssetCreation(int id) {
 		assetRepo.deleteById(id);
 		
