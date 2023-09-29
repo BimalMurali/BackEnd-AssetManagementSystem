@@ -1,4 +1,5 @@
-import java.sql.Date;
+package com.enigma.entity;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.nissan.entity.Department;
+
 
 @Entity
 @Table(name="AssetDefintion")
