@@ -16,11 +16,11 @@ public interface IVendorCreationService {
 		public VendorCreation getVendorDetails(int id);
 
 		// delete
-		public void deleteVendor(int id);
+		//public void deleteVendor(int id);
 
 		// search by name
-		public List<VendorCreation> getVendorByName(String name);
+		//public List<VendorCreation> getVendorByName(String name);
 
 		// update by id
-		public VendorCreation updateVendor(VendorCreation vendor);
+		//public VendorCreation updateVendor(VendorCreation vendor);
 }
