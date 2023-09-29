@@ -1,5 +1,5 @@
-package com.enigma.entity;
-
-public class AssetType {
-
-}
+//package com.enigma.entity;
+//
+//public class AssetType {
+//
+//}
