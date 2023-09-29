@@ -1,6 +1,7 @@
 package com.enigma.entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AssetDefinition")
-public class AssetDefinition {
+@Table(name="AssetCreation")
+public class AssetCreation {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="id")
@@ -47,7 +48,7 @@ public class AssetDefinition {
 	@Column(name="toDate",nullable=false,length=60)
 	private Date toDate;
 
-	public AssetDefinition(Integer id, String assetType, String make, String model, String serialNo,
+	public AssetCreation(Integer id, String assetType, String make, String model, String serialNo,
 			String yearOfManufacture, Date purchaseDate, String warrranty, Date fromDate, Date toDate) {
 		super();
 		this.id = id;
@@ -62,7 +63,7 @@ public class AssetDefinition {
 		this.toDate = toDate;
 	}
 
-	public AssetDefinition() {
+	public AssetCreation() {
 		super();
 	}
 
