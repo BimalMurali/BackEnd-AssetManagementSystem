@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.enigma.entity.AssetCreation;
-import com.enigma.repository.IAssetDefRepository;
+import com.enigma.repository.IAssetCreationRepository;
 @Service
 public class AssetCreationServiceImple implements IAssetCreationService {
 	@Autowired
-	private IAssetDefRepository assetRepo;
+	private IAssetCreationRepository assetRepo;
 
 	
 	public List<AssetCreation> getAssetDefinition() {
