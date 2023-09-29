@@ -23,4 +23,11 @@ public class AssetCreationServiceImple implements IAssetCreationService {
 		return assetRepo.save(asset);
 	}
 
+
+	@Override
+	public void deleteAssetCreation(int id) {
+		assetRepo.deleteById(id);
+		
+	}
+
 }
