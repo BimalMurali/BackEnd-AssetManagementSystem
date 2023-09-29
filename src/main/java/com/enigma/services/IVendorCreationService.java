@@ -2,7 +2,7 @@ package com.enigma.services;
 
 import java.util.List;
 
-import com.nissan.entity.VendorCreation;
+import com.enigma.entity.VendorCreation;
 
 public interface IVendorCreationService {
 
