@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.enigma.entity.AssetCreation;
 
-public interface IAssetDefRepository extends CrudRepository<AssetCreation, Integer>{
+public interface IAssetCreationRepository extends CrudRepository<AssetCreation, Integer>{
 
 }

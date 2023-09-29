@@ -29,13 +29,13 @@ public class AssetCreationController {
 	
 	
 	    //list
-		@GetMapping("/asset_creation")
+		@GetMapping("/assetCreation")
 		public List<AssetCreation> getAssetDefinition(@RequestHeader(value="authorization",defaultValue="")String auth) throws AccessDeniedException{
 			return assetService.getAssetDefinition();
 		}
 			
 		//add
-		@PostMapping("/asset_creation")
+		@PostMapping("/assetCreation")
 		public ResponseEntity<APIResponse> addAssetCreation(@RequestBody AssetCreation asset){
 			if(assetService.saveAsset(asset)==null) {
 				apiResponse.setData(("Name can have only alphabets"));
