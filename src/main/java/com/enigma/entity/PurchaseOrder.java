@@ -12,50 +12,130 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PurchaseOrder")
+@Table(name = "PurchaseOrder")
 public class PurchaseOrder {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="Id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "Id")
 	private Integer id;
+
+	@Column(name = "PurchaseOrderNo")
+	private String purchaseOrderNo;
+
+	@Column(name = "AssetTypeId")
+	private int assetTypeId;
+	@OneToOne
+	@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
+	private AssetType assetType;
 	
-	@Column(name="PurchaseOrderNo")
-	private String purchaseOrderNo ;
-	
-	@Column(name="AssetType")
-	private String assetType;
-	
-	@Column(name="VendorName")
-	private String vendorName;
-	
-	@Column(name="OrderDate")
+	@Column(name="AssetId")
+	private int assetId;
+	@OneToOne
+	@JoinColumn(name="assetId",insertable=false,updatable=false)
+	private AssetDefinition assetdefinition;
+
+	@Column(name = "VendorId")
+	//Mapping to Vendor Creation
+	private Integer vendorId;
+	@OneToOne
+	@JoinColumn(name = "vendorId", insertable = false, updatable = false)
+	private VendorCreation vendorCreation;
+
+	@Column(name = "OrderDate")
 	private Date orderDate;
-	
-	@Column(name="DeliveryDate")
+
+	@Column(name = "DeliveryDate")
 	private Date deliveryDate;
-	
-	//Mapping
-	@Column(name="StatusId")
+
+	// Mapping to Status table
+	@Column(name = "StatusId")
 	private Integer statusId;
 	@OneToOne
-	@JoinColumn(name="statusId",insertable=false,updatable=false)
+	@JoinColumn(name = "statusId", insertable = false, updatable = false)
 	private Status status;
 
-	public PurchaseOrder(Integer id, String number, String assetType, String vendorName, Date orderDate,
-			Date deliveryDate, Integer status) {
+
+	public int getAssetId() {
+		return assetId;
+	}
+
+	public void setAssetId(int assetId) {
+		this.assetId = assetId;
+	}
+
+	public AssetDefinition getAssetdefinition() {
+		return assetdefinition;
+	}
+
+	public void setAssetdefinition(AssetDefinition assetdefinition) {
+		this.assetdefinition = assetdefinition;
+	}
+
+	public void setAssetType(AssetType assetType) {
+		this.assetType = assetType;
+	}
+
+	public PurchaseOrder(Integer id, String purchaseOrderNo, int assetTypeId, AssetType assetType, int assetId,
+			AssetDefinition assetdefinition, Integer vendorId, VendorCreation vendorCreation, Date orderDate,
+			Date deliveryDate, Integer statusId, Status status) {
 		super();
 		this.id = id;
-		this.purchaseOrderNo = number;
+		this.purchaseOrderNo = purchaseOrderNo;
+		this.assetTypeId = assetTypeId;
 		this.assetType = assetType;
-		this.vendorName = vendorName;
+		this.assetId = assetId;
+		this.assetdefinition = assetdefinition;
+		this.vendorId = vendorId;
+		this.vendorCreation = vendorCreation;
 		this.orderDate = orderDate;
 		this.deliveryDate = deliveryDate;
-		this.statusId = status;
+		this.statusId = statusId;
+		this.status = status;
+	}
+
+	public String getPurchaseOrderNo() {
+		return purchaseOrderNo;
+	}
+
+	public void setPurchaseOrderNo(String purchaseOrderNo) {
+		this.purchaseOrderNo = purchaseOrderNo;
+	}
+
+	public int getAssetTypeId() {
+		return assetTypeId;
+	}
+
+	public void setAssetTypeId(int assetTypeId) {
+		this.assetTypeId = assetTypeId;
+	}
+
+	public Integer getVendorId() {
+		return vendorId;
+	}
+
+	public void setVendorId(Integer vendorId) {
+		this.vendorId = vendorId;
+	}
+
+	public VendorCreation getVendorCreation() {
+		return vendorCreation;
+	}
+
+	public void setVendorCreation(VendorCreation vendorCreation) {
+		this.vendorCreation = vendorCreation;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	public PurchaseOrder() {
-		
+
 	}
 
 	public Integer getId() {
@@ -74,21 +154,14 @@ public class PurchaseOrder {
 		this.purchaseOrderNo = number;
 	}
 
-	public String getAssetType() {
-		return assetType;
+	public int getAssetType() {
+		return assetTypeId;
 	}
 
-	public void setAssetType(String assetType) {
-		this.assetType = assetType;
+	public void setAssetType(int assetType) {
+		this.assetTypeId = assetType;
 	}
 
-	public String getVendorName() {
-		return vendorName;
-	}
-
-	public void setVendorName(String vendorName) {
-		this.vendorName = vendorName;
-	}
 
 	public Date getOrderDate() {
 		return orderDate;
@@ -116,19 +189,19 @@ public class PurchaseOrder {
 
 	@Override
 	public String toString() {
-		return "PurchaseOrder [id=" + id + ", purchaseOrderNo=" + purchaseOrderNo + ", assetType=" + assetType
-				+ ", vendorName=" + vendorName + ", orderDate=" + orderDate + ", deliveryDate=" + deliveryDate
-				+ ", statusId=" + statusId + ", status=" + status + ", getId()=" + getId() + ", getNumber()="
-				+ getNumber() + ", getAssetType()=" + getAssetType() + ", getVendorName()=" + getVendorName()
-				+ ", getOrderDate()=" + getOrderDate() + ", getDeliveryDate()=" + getDeliveryDate() + ", getStatusId()="
-				+ getStatusId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+		return "PurchaseOrder [id=" + id + ", purchaseOrderNo=" + purchaseOrderNo + ", assetTypeId=" + assetTypeId
+				+ ", assetType=" + assetType + ", assetId=" + assetId + ", assetdefinition=" + assetdefinition
+				+ ", vendorId=" + vendorId + ", vendorCreation=" + vendorCreation + ", orderDate=" + orderDate
+				+ ", deliveryDate=" + deliveryDate + ", statusId=" + statusId + ", status=" + status + ", getAssetId()="
+				+ getAssetId() + ", getAssetdefinition()=" + getAssetdefinition() + ", getPurchaseOrderNo()="
+				+ getPurchaseOrderNo() + ", getAssetTypeId()=" + getAssetTypeId() + ", getVendorId()=" + getVendorId()
+				+ ", getVendorCreation()=" + getVendorCreation() + ", getStatus()=" + getStatus() + ", getId()="
+				+ getId() + ", getNumber()=" + getNumber() + ", getAssetType()=" + getAssetType() + ", getOrderDate()="
+				+ getOrderDate() + ", getDeliveryDate()=" + getDeliveryDate() + ", getStatusId()=" + getStatusId()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
-	
-	
-	
-	
-	
-	
+
+
 
 }

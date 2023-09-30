@@ -8,6 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,16 +22,28 @@ public class AssetCreation {
 	@Column(name="id")
 	private Integer id;
 	
+	//
 	@Column(name="assetType",nullable=false,length=60)
 	private String assetType;
 	
 	@Column(name="make",nullable=false,length=60)
 	private String make;
 	
-	@Column(name="model",nullable=false,length=60)
-	private String model;
+	
+	private int modelId;
+	@ManyToOne
+	@JoinColumn(name="modelId",insertable=false,updatable=false)
+	private AssetDefinition assetdef;
 
 	
+	public AssetDefinition getAssetdef() {
+		return assetdef;
+	}
+
+	public void setAssetdef(AssetDefinition assetdef) {
+		this.assetdef = assetdef;
+	}
+
 	@Column(name="serialNo",nullable=false,length=60)
 	private String serialNo;
 
@@ -48,13 +64,17 @@ public class AssetCreation {
 	@Column(name="toDate",nullable=false,length=60)
 	private Date toDate;
 
-	public AssetCreation(Integer id, String assetType, String make, String model, String serialNo,
-			String yearOfManufacture, Date purchaseDate, String warrranty, Date fromDate, Date toDate) {
+	
+
+	public AssetCreation(Integer id, String assetType, String make, int modelName, AssetDefinition assetdef,
+			String serialNo, String yearOfManufacture, Date purchaseDate, String warrranty, Date fromDate,
+			Date toDate) {
 		super();
 		this.id = id;
 		this.assetType = assetType;
 		this.make = make;
-		this.model = model;
+		this.modelId = modelId;
+		this.assetdef = assetdef;
 		this.serialNo = serialNo;
 		this.yearOfManufacture = yearOfManufacture;
 		this.purchaseDate = purchaseDate;
@@ -91,12 +111,14 @@ public class AssetCreation {
 		this.make = make;
 	}
 
-	public String getModel() {
-		return model;
+	
+
+	public int getModelId() {
+		return modelId;
 	}
 
-	public void setModel(String model) {
-		this.model = model;
+	public void setModelId(int modelId) {
+		this.modelId = modelId;
 	}
 
 	public String getSerialNo() {
@@ -149,12 +171,15 @@ public class AssetCreation {
 
 	@Override
 	public String toString() {
-		return "AssetDefinition [id=" + id + ", assetType=" + assetType + ", make=" + make + ", model=" + model
-				+ ", serialNo=" + serialNo + ", yearOfManufacture=" + yearOfManufacture + ", purchaseDate="
-				+ purchaseDate + ", warrranty=" + warrranty + ", fromDate=" + fromDate + ", toDate=" + toDate + "]";
+		return "AssetCreation [id=" + id + ", assetType=" + assetType + ", make=" + make + ", modelId=" + modelId
+				+ ", assetdef=" + assetdef + ", serialNo=" + serialNo + ", yearOfManufacture=" + yearOfManufacture
+				+ ", purchaseDate=" + purchaseDate + ", warrranty=" + warrranty + ", fromDate=" + fromDate + ", toDate="
+				+ toDate + "]";
 	}
+
+	
 	
 	
 
-
+	
 }
