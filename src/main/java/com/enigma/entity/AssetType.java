@@ -34,7 +34,7 @@ public class AssetType {
 	}
 
 	public AssetType() {
-		super();
+	
 		// TODO Auto-generated constructor stub
 	}
 
