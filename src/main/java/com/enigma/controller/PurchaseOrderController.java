@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,15 +58,20 @@ public class PurchaseOrderController {
 
 	// update
 	@PutMapping("/purchaseorders")
-	public void updateEmployee(@RequestBody PurchaseOrder purchaseOrder,
-			@RequestHeader(value = "authorization", defaultValue = "") String auth) throws AccessDeniedException {
-		// jwtUtil.verify(auth);
-		purchaseOrderService.saveOrders(purchaseOrder);
-
+	public ResponseEntity<APIResponse> updateAsset(@RequestBody PurchaseOrder purchaseOrder) {
+		if (purchaseOrderService.saveOrders(purchaseOrder) == null) {
+			apiResponse.setData(("Name can have only alphabets"));
+			apiResponse.setStatus(500);
+			apiResponse.setError("Invalid name");
+			return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
+		}
+		apiResponse.setData("Purchase Orders updated sucessfully");
+		apiResponse.setStatus(200);
+		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 	}
 
 	// disable or delete employee
-	@PutMapping("/purchaseorders/{id}")
+	@DeleteMapping("/purchaseorders/{id}")
 	public void deleteOrders(@PathVariable int id,
 			@RequestHeader(value = "authorization", defaultValue = "") String auth) throws AccessDeniedException {
 		// jwtUtil.verify(auth);
