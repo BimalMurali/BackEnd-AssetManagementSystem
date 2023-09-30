@@ -12,5 +12,9 @@ public interface IAssetCreationService {
 	//save
 	public AssetCreation saveAsset(AssetCreation asset);
 	
+	//delete by id
+	public void deleteAssetCreation(int id);
+	
+	
 
 }

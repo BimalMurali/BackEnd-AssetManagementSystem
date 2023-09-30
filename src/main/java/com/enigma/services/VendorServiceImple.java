@@ -30,7 +30,7 @@ public class VendorServiceImple implements IVendorCreationService{
 
 	public VendorCreation getVendorDetails(int id) {
 		
-		return null;
+		return vendorrepo.findById(id).orElseThrow(()->new RuntimeException("Vendor not found for id"+id));
 	}
 
 

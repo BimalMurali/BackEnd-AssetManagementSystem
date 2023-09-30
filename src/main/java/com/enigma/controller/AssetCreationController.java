@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -48,6 +50,15 @@ public class AssetCreationController {
 			return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
 				
 		}
+		
+		
+//		disable or delete asset
+		@DeleteMapping("/deleteAsset/{id}")
+		public String deleteAssetCreation(@PathVariable int id) {
+			assetService.deleteAssetCreation(id);
+			String confirmationMessage = "Details deleted successfully";
+	        return confirmationMessage;
 
+}
 }
 

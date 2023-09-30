@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.enigma.common.APIResponse;
 import com.enigma.entity.VendorCreation;
 import com.enigma.services.IVendorCreationService;
+
 
 
 
@@ -29,21 +31,39 @@ public class VendorCreationController {
 	
 	@Autowired
 	private IVendorCreationService vendorservice;
+	
+	@Autowired 	
+	private APIResponse apiResponse;
+
 	//list
-	@GetMapping("/vendor")
+	@GetMapping("/vendors")
 	public List<VendorCreation> getVendorDetails() throws AccessDeniedException{
 		
 		return vendorservice.getVendorDetails();
 	}
 	//id
-	@GetMapping("/vendor/{id}")
+	@GetMapping("/vendors/{id}")
 	public VendorCreation getVendorDetails(@PathVariable int id) throws AccessDeniedException
 	{
 			return vendorservice.getVendorDetails(id);
 	}
 	
 	//add
-	
+	@PostMapping("/vendors")
+	public ResponseEntity<APIResponse> addVendor(@RequestBody VendorCreation vendor){
+		System.out.println("hiii");
+		if(vendorservice.saveVendor(vendor)==null) {
+			apiResponse.setData("Name can have only alphabets");
+			apiResponse.setStatus(500);
+			apiResponse.setError("INVALID NAME");
+			
+			return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
+		}
+		apiResponse.setData("VENDOR ADDED SUCCESSFULLY");
+		apiResponse.setStatus(200);
+		return ResponseEntity.status(apiResponse.getStatus()).body(apiResponse);
+		
+	}
 	//update
 	@PutMapping("/vendor")
 	public void updateVendor(@RequestBody VendorCreation vendor)
