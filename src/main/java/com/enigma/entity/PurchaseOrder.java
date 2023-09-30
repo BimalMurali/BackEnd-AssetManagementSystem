@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -33,11 +35,15 @@ public class PurchaseOrder {
 	@Column(name="DeliveryDate")
 	private Date deliveryDate;
 	
-	@Column(name="Status")
-	private String status;
+	//Mapping
+	@Column(name="StatusId")
+	private Integer statusId;
+	@OneToOne
+	@JoinColumn(name="statusId",insertable=false,updatable=false)
+	private Status status;
 
 	public PurchaseOrder(Integer id, String number, String assetType, String vendorName, Date orderDate,
-			Date deliveryDate, String status) {
+			Date deliveryDate, Integer status) {
 		super();
 		this.id = id;
 		this.purchaseOrderNo = number;
@@ -45,7 +51,7 @@ public class PurchaseOrder {
 		this.vendorName = vendorName;
 		this.orderDate = orderDate;
 		this.deliveryDate = deliveryDate;
-		this.status = status;
+		this.statusId = status;
 	}
 
 	public PurchaseOrder() {
@@ -100,12 +106,23 @@ public class PurchaseOrder {
 		this.deliveryDate = deliveryDate;
 	}
 
-	public String getStatus() {
-		return status;
+	public Integer getStatusId() {
+		return statusId;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatusId(Integer status) {
+		this.statusId = status;
+	}
+
+	@Override
+	public String toString() {
+		return "PurchaseOrder [id=" + id + ", purchaseOrderNo=" + purchaseOrderNo + ", assetType=" + assetType
+				+ ", vendorName=" + vendorName + ", orderDate=" + orderDate + ", deliveryDate=" + deliveryDate
+				+ ", statusId=" + statusId + ", status=" + status + ", getId()=" + getId() + ", getNumber()="
+				+ getNumber() + ", getAssetType()=" + getAssetType() + ", getVendorName()=" + getVendorName()
+				+ ", getOrderDate()=" + getOrderDate() + ", getDeliveryDate()=" + getDeliveryDate() + ", getStatusId()="
+				+ getStatusId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
 	}
 	
 	
