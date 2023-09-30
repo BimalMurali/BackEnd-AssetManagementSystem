@@ -85,8 +85,10 @@ public class AssetDefinitionController {
 	
 	//disable or delete employee
 	@DeleteMapping("/asset/{id}")
-	public void deleteAsset(@PathVariable int id) {
+	public String deleteAsset(@PathVariable int id) {
 		assetDefinitionService.deleteAsset(id);
+		String confirmationMessage="Asset added successfully";
+		return confirmationMessage;
 		
 	}
 	
