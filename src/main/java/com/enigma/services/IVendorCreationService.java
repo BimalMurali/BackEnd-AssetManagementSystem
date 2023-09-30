@@ -22,5 +22,8 @@ public interface IVendorCreationService {
 		//public List<VendorCreation> getVendorByName(String name);
 
 		// update by id
-		//public VendorCreation updateVendor(VendorCreation vendor);
+		public VendorCreation updateVendor(VendorCreation vendor);
+
+		//delete vendor
+		public void deleteVendor(int id);
 }
