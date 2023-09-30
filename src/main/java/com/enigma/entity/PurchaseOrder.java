@@ -25,7 +25,7 @@ public class PurchaseOrder {
 	private String purchaseOrderNo;
 
 	
-	@ManyToOne
+	@OneToOne
     @JoinColumn(name = "assetTypeId", nullable = false, updatable = false)
     private AssetType assetType;
 	
