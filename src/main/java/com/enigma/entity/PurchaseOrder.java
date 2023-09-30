@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,34 +20,38 @@ public class PurchaseOrder {
 	@Column(name="Id")
 	private Integer id;
 	
-	@Column(name="Purchase_order_no")
-	private String number;
+	@Column(name="PurchaseOrderNo")
+	private String purchaseOrderNo ;
 	
-	@Column(name="Asset_Type")
+	@Column(name="AssetType")
 	private String assetType;
 	
-	@Column(name="Vendor_Name")
+	@Column(name="VendorName")
 	private String vendorName;
 	
-	@Column(name="Order Date")
+	@Column(name="OrderDate")
 	private Date orderDate;
 	
-	@Column(name="Delivery_Date")
+	@Column(name="DeliveryDate")
 	private Date deliveryDate;
 	
-	@Column(name="Status")
-	private String status;
+	//Mapping
+	@Column(name="StatusId")
+	private Integer statusId;
+	@OneToOne
+	@JoinColumn(name="statusId",insertable=false,updatable=false)
+	private Status status;
 
 	public PurchaseOrder(Integer id, String number, String assetType, String vendorName, Date orderDate,
-			Date deliveryDate, String status) {
+			Date deliveryDate, Integer status) {
 		super();
 		this.id = id;
-		this.number = number;
+		this.purchaseOrderNo = number;
 		this.assetType = assetType;
 		this.vendorName = vendorName;
 		this.orderDate = orderDate;
 		this.deliveryDate = deliveryDate;
-		this.status = status;
+		this.statusId = status;
 	}
 
 	public PurchaseOrder() {
@@ -61,11 +67,11 @@ public class PurchaseOrder {
 	}
 
 	public String getNumber() {
-		return number;
+		return purchaseOrderNo;
 	}
 
 	public void setNumber(String number) {
-		this.number = number;
+		this.purchaseOrderNo = number;
 	}
 
 	public String getAssetType() {
@@ -100,12 +106,23 @@ public class PurchaseOrder {
 		this.deliveryDate = deliveryDate;
 	}
 
-	public String getStatus() {
-		return status;
+	public Integer getStatusId() {
+		return statusId;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatusId(Integer status) {
+		this.statusId = status;
+	}
+
+	@Override
+	public String toString() {
+		return "PurchaseOrder [id=" + id + ", purchaseOrderNo=" + purchaseOrderNo + ", assetType=" + assetType
+				+ ", vendorName=" + vendorName + ", orderDate=" + orderDate + ", deliveryDate=" + deliveryDate
+				+ ", statusId=" + statusId + ", status=" + status + ", getId()=" + getId() + ", getNumber()="
+				+ getNumber() + ", getAssetType()=" + getAssetType() + ", getVendorName()=" + getVendorName()
+				+ ", getOrderDate()=" + getOrderDate() + ", getDeliveryDate()=" + getDeliveryDate() + ", getStatusId()="
+				+ getStatusId() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
 	}
 	
 	

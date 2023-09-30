@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.enigma.entity.PurchaseOrder;
 
-public interface IPurchaseOrder extends CrudRepository<PurchaseOrder, Integer> {
+public interface IPurchaseOrderRepository extends CrudRepository<PurchaseOrder, Integer> {
 
 }
