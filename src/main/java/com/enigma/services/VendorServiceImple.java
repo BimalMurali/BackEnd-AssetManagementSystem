@@ -23,8 +23,9 @@ public class VendorServiceImple implements IVendorCreationService{
 
 	
 	public VendorCreation saveVendor(VendorCreation vendor) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return vendorrepo.save(vendor);
+		
 	}
 
 
@@ -37,6 +38,18 @@ public class VendorServiceImple implements IVendorCreationService{
 	public List<VendorCreation> getVendorByName(String name) {
 	
 		return null;
+	}
+
+
+	public VendorCreation updateVendor(VendorCreation vendor) {
+		
+		return null;
+	}
+
+
+	public void deleteVendor(int id) {
+		vendorrepo.deleteById(id);
+		
 	}
 
 	
