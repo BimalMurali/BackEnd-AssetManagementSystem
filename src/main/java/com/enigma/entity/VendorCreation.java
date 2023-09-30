@@ -22,9 +22,10 @@ public class VendorCreation {
 	@Column(name="type",nullable=false,length=60)
 	private String type;
 	
+	@Column(name="assettypeid")
 	private Integer assettypeid;
 	@ManyToOne
-	@JoinColumn(name="assettypeid",nullable=false,updatable=false)
+	@JoinColumn(name="assettypeid",insertable=false,updatable=false)
 	private AssetType assetType;
 	
 	@Column(name="validfrom",nullable=false,length=60)
