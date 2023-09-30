@@ -47,6 +47,14 @@ public class AssetDefinition {
 		this.assetName = assetName;
 	}
 
+	public int getAssetTypeId() {
+		return assetTypeId;
+	}
+
+	public void setAssetTypeId(int assetTypeId) {
+		this.assetTypeId = assetTypeId;
+	}
+
 	public AssetType getAssetType() {
 		return assetType;
 	}

@@ -16,17 +16,13 @@ public class AssetDefinitionServiceImpl implements IAssetDefinitionService {
 	private IAssetDefinitionRepository assetDefRepo;
 //	@Autowired
 //	private Validation validation;
+	
+	//list
 	public List<AssetDefinition> getAsset() {
 		// TODO Auto-generated method stub
 		return (List<AssetDefinition>) assetDefRepo.findAll();
 	}
 
-//	public AssetDefinition saveAsset(AssetDefinition Asset) {
-////		if(validation.isNameValid(employee.getEmployeename())) {
-////		return employeeRepo.save(employee);
-////		}
-////		return employee;
-//	}
 
 	public AssetDefinition getAsset(int id) {
 		return assetDefRepo.findById(id)
@@ -34,11 +30,13 @@ public class AssetDefinitionServiceImpl implements IAssetDefinitionService {
 				RuntimeException("Asset not found for id"+id));
 	}
 
+	
+	//delete
 	public void deleteAsset(int id) {
 		assetDefRepo.deleteById(id);
 	}
 
-	@Override
+	
 	public AssetDefinition saveAsset(AssetDefinition asset) {
 		// TODO Auto-generated method stub
 		return assetDefRepo.save(asset);
