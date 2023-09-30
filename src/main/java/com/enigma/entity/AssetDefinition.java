@@ -23,6 +23,7 @@ public class AssetDefinition {
 	@Column(name="assetName",nullable=false,length=60)
 	private String assetName;
 	
+	private int assetTypeId;
 	@ManyToOne
 	@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
 	private AssetType assetType;
