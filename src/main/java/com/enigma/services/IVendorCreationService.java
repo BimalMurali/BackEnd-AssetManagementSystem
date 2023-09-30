@@ -12,7 +12,7 @@ public interface IVendorCreationService {
 		// insert
 		public VendorCreation saveVendor(VendorCreation vendor);
 
-		// update by id
+		// get by id
 		public VendorCreation getVendorDetails(int id);
 
 		// delete
