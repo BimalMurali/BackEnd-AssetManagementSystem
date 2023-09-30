@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -23,11 +24,12 @@ public class PurchaseOrder {
 	@Column(name = "PurchaseOrderNo")
 	private String purchaseOrderNo;
 
-	@Column(name = "AssetTypeId")
+	
 	private int assetTypeId;
 	@OneToOne
-	@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
+	@JoinColumn(name="assetTypeId",nullable=false,updatable=false)
 	private AssetType assetType;
+	
 	
 	@Column(name="AssetId")
 	private int assetId;
@@ -39,7 +41,7 @@ public class PurchaseOrder {
 	//Mapping to Vendor Creation
 	private Integer vendorId;
 	@OneToOne
-	@JoinColumn(name = "vendorId", insertable = false, updatable = false)
+	@JoinColumn(name = "vendorId", insertable = false,updatable = false)
 	private VendorCreation vendorCreation;
 
 	@Column(name = "OrderDate")
