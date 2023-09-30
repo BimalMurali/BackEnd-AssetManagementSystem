@@ -32,9 +32,11 @@ public class AssetCreationServiceImple implements IAssetCreationService {
 		
 	}
 
-
+// update asset
 	public AssetCreation updateAsset(int id) {
-		return null;
+		return assetRepo.findById(id)
+				.orElseThrow(()-> new
+				RuntimeException("Asset not found for id"+id));
 	}
 
 }
