@@ -18,19 +18,19 @@ public class PurchaseOrder {
 	@Column(name="Id")
 	private Integer id;
 	
-	@Column(name="Purchase_order_no")
-	private String number;
+	@Column(name="PurchaseOrderNo")
+	private String purchaseOrderNo ;
 	
-	@Column(name="Asset_Type")
+	@Column(name="AssetType")
 	private String assetType;
 	
-	@Column(name="Vendor_Name")
+	@Column(name="VendorName")
 	private String vendorName;
 	
-	@Column(name="Order Date")
+	@Column(name="OrderDate")
 	private Date orderDate;
 	
-	@Column(name="Delivery_Date")
+	@Column(name="DeliveryDate")
 	private Date deliveryDate;
 	
 	@Column(name="Status")
@@ -40,7 +40,7 @@ public class PurchaseOrder {
 			Date deliveryDate, String status) {
 		super();
 		this.id = id;
-		this.number = number;
+		this.purchaseOrderNo = number;
 		this.assetType = assetType;
 		this.vendorName = vendorName;
 		this.orderDate = orderDate;
@@ -61,11 +61,11 @@ public class PurchaseOrder {
 	}
 
 	public String getNumber() {
-		return number;
+		return purchaseOrderNo;
 	}
 
 	public void setNumber(String number) {
-		this.number = number;
+		this.purchaseOrderNo = number;
 	}
 
 	public String getAssetType() {
