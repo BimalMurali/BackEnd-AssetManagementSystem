@@ -32,4 +32,9 @@ public class AssetCreationServiceImple implements IAssetCreationService {
 		
 	}
 
+
+	public AssetCreation updateAsset(int id) {
+		return null;
+	}
+
 }

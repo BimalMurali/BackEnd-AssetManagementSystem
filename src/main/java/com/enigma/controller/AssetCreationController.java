@@ -31,13 +31,13 @@ public class AssetCreationController {
 	
 	
 	    //list
-		@GetMapping("/assetCreation")
+		@GetMapping("/assetcreation")
 		public List<AssetCreation> getAssetDefinition(@RequestHeader(value="authorization",defaultValue="")String auth) throws AccessDeniedException{
 			return assetService.getAssetDefinition();
 		}
 			
 		//add
-		@PostMapping("/assetCreation")
+		@PostMapping("/assetcreation")
 		public ResponseEntity<APIResponse> addAssetCreation(@RequestBody AssetCreation asset){
 			if(assetService.saveAsset(asset)==null) {
 				apiResponse.setData(("Name can have only alphabets"));
@@ -52,8 +52,8 @@ public class AssetCreationController {
 		}
 		
 		
-//		disable or delete asset
-		@DeleteMapping("/deleteAsset/{id}")
+        //disable or delete asset
+		@DeleteMapping("/deleteasset/{id}")
 		public String deleteAssetCreation(@PathVariable int id) {
 			assetService.deleteAssetCreation(id);
 			String confirmationMessage = "Details deleted successfully";
