@@ -22,9 +22,11 @@ public class AssetCreation {
 	@Column(name="id")
 	private Integer id;
 	
-	//
-	@Column(name="assetType",nullable=false,length=60)
-	private String assetType;
+	
+	private Integer VendorAssetTypeID;
+	@ManyToOne
+	@JoinColumn(name="VendorAssetTypeID",insertable=false,updatable=false)
+	private VendorCreation vendors;
 	
 	@Column(name="make",nullable=false,length=60)
 	private String make;
@@ -35,15 +37,12 @@ public class AssetCreation {
 	@JoinColumn(name="modelId",insertable=false,updatable=false)
 	private AssetDefinition assetdef;
 
+	private int assetTypeId;
+	@OneToOne
+	@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
+	private AssetType assettypedef;
 	
-	public AssetDefinition getAssetdef() {
-		return assetdef;
-	}
-
-	public void setAssetdef(AssetDefinition assetdef) {
-		this.assetdef = assetdef;
-	}
-
+	
 	@Column(name="serialNo",nullable=false,length=60)
 	private String serialNo;
 
@@ -64,29 +63,6 @@ public class AssetCreation {
 	@Column(name="toDate",nullable=false,length=60)
 	private Date toDate;
 
-	
-
-	public AssetCreation(Integer id, String assetType, String make, int modelName, AssetDefinition assetdef,
-			String serialNo, String yearOfManufacture, Date purchaseDate, String warrranty, Date fromDate,
-			Date toDate) {
-		super();
-		this.id = id;
-		this.assetType = assetType;
-		this.make = make;
-		this.modelId = modelId;
-		this.assetdef = assetdef;
-		this.serialNo = serialNo;
-		this.yearOfManufacture = yearOfManufacture;
-		this.purchaseDate = purchaseDate;
-		this.warrranty = warrranty;
-		this.fromDate = fromDate;
-		this.toDate = toDate;
-	}
-
-	public AssetCreation() {
-		super();
-	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -95,12 +71,20 @@ public class AssetCreation {
 		this.id = id;
 	}
 
-	public String getAssetType() {
-		return assetType;
+	public Integer getVendorAssetTypeID() {
+		return VendorAssetTypeID;
 	}
 
-	public void setAssetType(String assetType) {
-		this.assetType = assetType;
+	public void setVendorAssetTypeID(Integer vendorAssetTypeID) {
+		VendorAssetTypeID = vendorAssetTypeID;
+	}
+
+	public VendorCreation getVendors() {
+		return vendors;
+	}
+
+	public void setVendors(VendorCreation vendors) {
+		this.vendors = vendors;
 	}
 
 	public String getMake() {
@@ -111,14 +95,36 @@ public class AssetCreation {
 		this.make = make;
 	}
 
-	
-
 	public int getModelId() {
 		return modelId;
 	}
 
 	public void setModelId(int modelId) {
 		this.modelId = modelId;
+	}
+
+	public AssetDefinition getAssetdef() {
+		return assetdef;
+	}
+
+	public void setAssetdef(AssetDefinition assetdef) {
+		this.assetdef = assetdef;
+	}
+
+	public int getAssetTypeId() {
+		return assetTypeId;
+	}
+
+	public void setAssetTypeId(int assetTypeId) {
+		this.assetTypeId = assetTypeId;
+	}
+
+	public AssetType getAssettypedef() {
+		return assettypedef;
+	}
+
+	public void setAssettypedef(AssetType assettypedef) {
+		this.assettypedef = assettypedef;
 	}
 
 	public String getSerialNo() {
@@ -169,15 +175,45 @@ public class AssetCreation {
 		this.toDate = toDate;
 	}
 
+	public AssetCreation(Integer id, Integer vendorAssetTypeID, VendorCreation vendors, String make, int modelId,
+			AssetDefinition assetdef, int assetTypeId, AssetType assettypedef, String serialNo,
+			String yearOfManufacture, Date purchaseDate, String warrranty, Date fromDate, Date toDate) {
+		super();
+		this.id = id;
+		VendorAssetTypeID = vendorAssetTypeID;
+		this.vendors = vendors;
+		this.make = make;
+		this.modelId = modelId;
+		this.assetdef = assetdef;
+		this.assetTypeId = assetTypeId;
+		this.assettypedef = assettypedef;
+		this.serialNo = serialNo;
+		this.yearOfManufacture = yearOfManufacture;
+		this.purchaseDate = purchaseDate;
+		this.warrranty = warrranty;
+		this.fromDate = fromDate;
+		this.toDate = toDate;
+	}
+
+	public AssetCreation() {
+		super();
+	}
+
 	@Override
 	public String toString() {
-		return "AssetCreation [id=" + id + ", assetType=" + assetType + ", make=" + make + ", modelId=" + modelId
-				+ ", assetdef=" + assetdef + ", serialNo=" + serialNo + ", yearOfManufacture=" + yearOfManufacture
-				+ ", purchaseDate=" + purchaseDate + ", warrranty=" + warrranty + ", fromDate=" + fromDate + ", toDate="
-				+ toDate + "]";
+		return "AssetCreation [id=" + id + ", VendorAssetTypeID=" + VendorAssetTypeID + ", vendors=" + vendors
+				+ ", make=" + make + ", modelId=" + modelId + ", assetdef=" + assetdef + ", assetTypeId=" + assetTypeId
+				+ ", assettypedef=" + assettypedef + ", serialNo=" + serialNo + ", yearOfManufacture="
+				+ yearOfManufacture + ", purchaseDate=" + purchaseDate + ", warrranty=" + warrranty + ", fromDate="
+				+ fromDate + ", toDate=" + toDate + "]";
 	}
 
 	
+	
+	
+
+	
+
 	
 	
 
