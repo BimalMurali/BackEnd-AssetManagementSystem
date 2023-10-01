@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,7 +24,7 @@ public class PurchaseOrder {
 	private String purchaseOrderNo;
 
 	
-	@ManyToOne
+	@OneToOne
     @JoinColumn(name = "assetTypeId", nullable = false, updatable = false)
     private AssetType assetType;
 	
