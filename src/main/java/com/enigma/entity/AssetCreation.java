@@ -37,6 +37,7 @@ public class AssetCreation {
 	@JoinColumn(name="modelId",insertable=false,updatable=false)
 	private AssetDefinition assetdef;
 
+	private boolean isActive=true;
 
 	
 	
@@ -59,6 +60,30 @@ public class AssetCreation {
 
 	@Column(name="toDate",nullable=false,length=60)
 	private Date toDate;
+
+	public AssetCreation(Integer id, Integer vendorAssetTypeID, VendorCreation vendors, String make, int modelId,
+			AssetDefinition assetdef, boolean isActive, String serialNo, String yearOfManufacture, Date purchaseDate,
+			String warrranty, Date fromDate, Date toDate) {
+		super();
+		this.id = id;
+		VendorAssetTypeID = vendorAssetTypeID;
+		this.vendors = vendors;
+		this.make = make;
+		this.modelId = modelId;
+		this.assetdef = assetdef;
+		this.isActive = isActive;
+		this.serialNo = serialNo;
+		this.yearOfManufacture = yearOfManufacture;
+		this.purchaseDate = purchaseDate;
+		this.warrranty = warrranty;
+		this.fromDate = fromDate;
+		this.toDate = toDate;
+	}
+
+	public AssetCreation() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Integer getId() {
 		return id;
@@ -106,6 +131,14 @@ public class AssetCreation {
 
 	public void setAssetdef(AssetDefinition assetdef) {
 		this.assetdef = assetdef;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public String getSerialNo() {
@@ -156,45 +189,14 @@ public class AssetCreation {
 		this.toDate = toDate;
 	}
 
-	public AssetCreation(Integer id, Integer vendorAssetTypeID, VendorCreation vendors, String make, int modelId,
-			AssetDefinition assetdef, String serialNo, String yearOfManufacture, Date purchaseDate, String warrranty,
-			Date fromDate, Date toDate) {
-		super();
-		this.id = id;
-		VendorAssetTypeID = vendorAssetTypeID;
-		this.vendors = vendors;
-		this.make = make;
-		this.modelId = modelId;
-		this.assetdef = assetdef;
-		this.serialNo = serialNo;
-		this.yearOfManufacture = yearOfManufacture;
-		this.purchaseDate = purchaseDate;
-		this.warrranty = warrranty;
-		this.fromDate = fromDate;
-		this.toDate = toDate;
-	}
-
-	public AssetCreation() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
 	public String toString() {
 		return "AssetCreation [id=" + id + ", VendorAssetTypeID=" + VendorAssetTypeID + ", vendors=" + vendors
-				+ ", make=" + make + ", modelId=" + modelId + ", assetdef=" + assetdef + ", serialNo=" + serialNo
-				+ ", yearOfManufacture=" + yearOfManufacture + ", purchaseDate=" + purchaseDate + ", warrranty="
-				+ warrranty + ", fromDate=" + fromDate + ", toDate=" + toDate + ", getId()=" + getId()
-				+ ", getVendorAssetTypeID()=" + getVendorAssetTypeID() + ", getVendors()=" + getVendors()
-				+ ", getMake()=" + getMake() + ", getModelId()=" + getModelId() + ", getAssetdef()=" + getAssetdef()
-				+ ", getSerialNo()=" + getSerialNo() + ", getYearOfManufacture()=" + getYearOfManufacture()
-				+ ", getPurchaseDate()=" + getPurchaseDate() + ", getWarrranty()=" + getWarrranty() + ", getFromDate()="
-				+ getFromDate() + ", getToDate()=" + getToDate() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", make=" + make + ", modelId=" + modelId + ", assetdef=" + assetdef + ", isActive=" + isActive
+				+ ", serialNo=" + serialNo + ", yearOfManufacture=" + yearOfManufacture + ", purchaseDate="
+				+ purchaseDate + ", warrranty=" + warrranty + ", fromDate=" + fromDate + ", toDate=" + toDate + "]";
 	}
+	
+	
 
-	
-	
-	
-	
 }
