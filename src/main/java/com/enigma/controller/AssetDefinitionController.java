@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.enigma.common.APIResponse;
 import com.enigma.entity.AssetDefinition;
+import com.enigma.entity.AssetType;
 import com.enigma.services.IAssetDefinitionService;
 
 
@@ -38,12 +39,18 @@ public class AssetDefinitionController {
 //	private JwtUtil jwtUtil;
 	
 	
-	//list
-	@GetMapping("/assets")
+//	list
+//	@GetMapping("/assets")
+//	public List<AssetType> getAsset(@RequestHeader(value="authorization",defaultValue="")String auth) throws AccessDeniedException{
+//		//jwtUtil.verify(auth);
+//		return assetDefinitionService.getAsset();
+//	}
+	@GetMapping("/assettype")
 	public List<AssetDefinition> getAsset(@RequestHeader(value="authorization",defaultValue="")String auth) throws AccessDeniedException{
 		//jwtUtil.verify(auth);
 		return assetDefinitionService.getAsset();
 	}
+	
 	
 	//search by id
 	@GetMapping("/assets/{id}")

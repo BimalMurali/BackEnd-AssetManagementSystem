@@ -43,13 +43,13 @@ public class VendorCreationController {
 		
 		return vendorservice.getVendorDetails();
 	}
-	//id
-	@GetMapping("/vendors/{id}")
-	public VendorCreation getVendorDetails(@PathVariable int id) throws AccessDeniedException
-	{
-			return vendorservice.getVendorDetails(id);
-	}
-	
+//	//id
+//	@GetMapping("/vendors/{id}")
+//	public VendorCreation getVendorDetails(@PathVariable int id) throws AccessDeniedException
+//	{
+//			return vendorservice.getVendorDetails(id);
+//	}
+//	
 	//add
 	@PostMapping("/vendors")
 	public ResponseEntity<APIResponse> addVendor(@RequestBody VendorCreation vendor){
@@ -83,9 +83,9 @@ public class VendorCreationController {
 	}
 	
 	//disable or delete employee
-		@DeleteMapping("/vendors/{id}")
-		public void deleteVendor(@PathVariable int id) {
-			vendorservice.deleteVendor(id);
+		@GetMapping("/vendors/{id}")
+		public void deleteVendors(@PathVariable int id) {
+			vendorservice.deleteVendors(id);
 		}
 		
 		

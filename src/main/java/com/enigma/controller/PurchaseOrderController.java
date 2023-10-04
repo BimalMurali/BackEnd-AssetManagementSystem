@@ -71,7 +71,7 @@ public class PurchaseOrderController {
 	}
 
 	// disable or delete employee
-	@DeleteMapping("/purchaseorders/{id}")
+	@GetMapping("/purchaseorders/{id}")
 	public void deleteOrders(@PathVariable int id,
 			@RequestHeader(value = "authorization", defaultValue = "") String auth) throws AccessDeniedException {
 		// jwtUtil.verify(auth);

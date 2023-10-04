@@ -23,7 +23,7 @@ public interface IVendorCreationRepository extends CrudRepository<VendorCreation
 	@Modifying
 	@Transactional
 	@Query("UPDATE VendorCreation v SET v.isActive=false where v.id=:Id")
-	public void deleteVendor(@Param("Id") int id);
+	public void deleteId(@Param("Id") int id);
 
 	
 }

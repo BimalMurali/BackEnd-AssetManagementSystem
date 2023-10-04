@@ -48,7 +48,18 @@ public class PurchaseOrder {
 	@OneToOne
 	@JoinColumn(name = "statusId", insertable = false, updatable = false)
 	private Status status;
+	
+	@Column(name="isActive")
+	private boolean isActive=true;
 
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 
 	public int getAssetId() {
 		return assetId;
@@ -67,12 +78,11 @@ public class PurchaseOrder {
 	}
 
 
-	
-	
 
-	public PurchaseOrder(Integer id, AssetType assetType, int assetId,
-			AssetDefinition assetdefinition, Integer vendorId, VendorCreation vendorCreation, LocalDate orderDate,
-			LocalDate deliveryDate, Integer statusId, Status status) {
+
+	public PurchaseOrder(Integer id, int assetId, AssetDefinition assetdefinition, Integer vendorId,
+			VendorCreation vendorCreation, LocalDate orderDate, LocalDate deliveryDate, Integer statusId, Status status,
+			boolean isActive) {
 		super();
 		this.id = id;
 		this.assetId = assetId;
@@ -83,10 +93,8 @@ public class PurchaseOrder {
 		this.deliveryDate = deliveryDate;
 		this.statusId = statusId;
 		this.status = status;
+		this.isActive = isActive;
 	}
-
-
-
 
 	public Integer getVendorId() {
 		return vendorId;
@@ -154,17 +162,16 @@ public class PurchaseOrder {
 
 	@Override
 	public String toString() {
-		return "PurchaseOrder [id=" + id + ", assetId=" + assetId + ", assetdefinition=" + assetdefinition + ", vendorId=" + vendorId
-				+ ", vendorCreation=" + vendorCreation + ", orderDate=" + orderDate + ", deliveryDate=" + deliveryDate
-				+ ", statusId=" + statusId + ", status=" + status + ", getAssetId()=" + getAssetId()
-				+ ", getAssetdefinition()=" + getAssetdefinition() + ", getPurchaseOrderNo()=" +  ", getVendorId()=" + getVendorId() + ", getVendorCreation()=" + getVendorCreation() + ", getStatus()="
-				+ getStatus() + ", getId()=" + getId() + ", getNumber()=" + ", getOrderDate()="
+		return "PurchaseOrder [id=" + id + ", assetId=" + assetId + ", assetdefinition=" + assetdefinition
+				+ ", vendorId=" + vendorId + ", vendorCreation=" + vendorCreation + ", orderDate=" + orderDate
+				+ ", deliveryDate=" + deliveryDate + ", statusId=" + statusId + ", status=" + status + ", isActive="
+				+ isActive + ", isActive()=" + isActive() + ", getAssetId()=" + getAssetId() + ", getAssetdefinition()="
+				+ getAssetdefinition() + ", getVendorId()=" + getVendorId() + ", getVendorCreation()="
+				+ getVendorCreation() + ", getStatus()=" + getStatus() + ", getId()=" + getId() + ", getOrderDate()="
 				+ getOrderDate() + ", getDeliveryDate()=" + getDeliveryDate() + ", getStatusId()=" + getStatusId()
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";
 	}
-
-	
 
 
 }
