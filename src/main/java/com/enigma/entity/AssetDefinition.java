@@ -30,6 +30,17 @@ public class AssetDefinition {
 	
 	@Column(name="category",nullable=false,length=60)
 	private String category;
+	
+	@Column(name="isActive")
+	private boolean isActive=true;
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 
 	public Integer getId() {
 		return id;
@@ -82,13 +93,16 @@ public class AssetDefinition {
 		this.assetName = assetName;
 		this.assetType = assetType;
 		this.category = category;
+		this.isActive = isActive;
 	}
 
 	@Override
 	public String toString() {
-		return "AssetDefinition [id=" + id + ", assetName=" + assetName + ", assetType=" + assetType + ", category="
-				+ category + "]";
+		return "AssetDefinition [id=" + id + ", assetName=" + assetName + ", assetTypeId=" + assetTypeId
+				+ ", assetType=" + assetType + ", category=" + category + ", isActive=" + isActive + "]";
 	}
+
+	
 	
 	
 

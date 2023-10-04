@@ -91,11 +91,11 @@ public class AssetDefinitionController {
 	}
 	
 	//disable or delete employee
-	@DeleteMapping("/asset/{id}")
-	public String deleteAsset(@PathVariable int id) {
+	@GetMapping("/asset/{id}")
+	public void deleteAsset(@PathVariable int id,
+			
+		@RequestHeader(value = "authorization", defaultValue = "") String auth) throws AccessDeniedException {
 		assetDefinitionService.deleteAsset(id);
-		String confirmationMessage="Asset added successfully";
-		return confirmationMessage;
 		
 	}
 	
