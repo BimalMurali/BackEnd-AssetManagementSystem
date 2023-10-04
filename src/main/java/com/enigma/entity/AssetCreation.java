@@ -37,10 +37,10 @@ public class AssetCreation {
 	@JoinColumn(name="modelId",insertable=false,updatable=false)
 	private AssetDefinition assetdef;
 
-	private int assetTypeId;
-	@OneToOne
-	@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
-	private AssetType assettypedef;
+//	private int assetTypeId;
+//	@OneToOne
+//	@JoinColumn(name="assetTypeId",insertable=false,updatable=false)
+//	private AssetType assettypedef;
 	
 	
 	@Column(name="serialNo",nullable=false,length=60)
@@ -111,21 +111,21 @@ public class AssetCreation {
 		this.assetdef = assetdef;
 	}
 
-	public int getAssetTypeId() {
-		return assetTypeId;
-	}
+//	public int getAssetTypeId() {
+//		return assetTypeId;
+//	}
+//
+//	public void setAssetTypeId(int assetTypeId) {
+//		this.assetTypeId = assetTypeId;
+//	}
 
-	public void setAssetTypeId(int assetTypeId) {
-		this.assetTypeId = assetTypeId;
-	}
-
-	public AssetType getAssettypedef() {
-		return assettypedef;
-	}
-
-	public void setAssettypedef(AssetType assettypedef) {
-		this.assettypedef = assettypedef;
-	}
+//	public AssetType getAssettypedef() {
+//		return assettypedef;
+//	}
+//
+//	public void setAssettypedef(AssetType assettypedef) {
+//		this.assettypedef = assettypedef;
+//	}
 
 	public String getSerialNo() {
 		return serialNo;
@@ -185,8 +185,8 @@ public class AssetCreation {
 		this.make = make;
 		this.modelId = modelId;
 		this.assetdef = assetdef;
-		this.assetTypeId = assetTypeId;
-		this.assettypedef = assettypedef;
+//		this.assetTypeId = assetTypeId;
+//		this.assettypedef = assettypedef;
 		this.serialNo = serialNo;
 		this.yearOfManufacture = yearOfManufacture;
 		this.purchaseDate = purchaseDate;
@@ -202,11 +202,12 @@ public class AssetCreation {
 	@Override
 	public String toString() {
 		return "AssetCreation [id=" + id + ", VendorAssetTypeID=" + VendorAssetTypeID + ", vendors=" + vendors
-				+ ", make=" + make + ", modelId=" + modelId + ", assetdef=" + assetdef + ", assetTypeId=" + assetTypeId
-				+ ", assettypedef=" + assettypedef + ", serialNo=" + serialNo + ", yearOfManufacture="
-				+ yearOfManufacture + ", purchaseDate=" + purchaseDate + ", warrranty=" + warrranty + ", fromDate="
-				+ fromDate + ", toDate=" + toDate + "]";
+				+ ", make=" + make + ", modelId=" + modelId + ", assetdef=" + assetdef + ", serialNo=" + serialNo
+				+ ", yearOfManufacture=" + yearOfManufacture + ", purchaseDate=" + purchaseDate + ", warrranty="
+				+ warrranty + ", fromDate=" + fromDate + ", toDate=" + toDate + "]";
 	}
+
+	
 
 	
 	
