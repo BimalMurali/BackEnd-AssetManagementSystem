@@ -1,5 +1,6 @@
 package com.enigma.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -21,15 +22,7 @@ public class PurchaseOrder {
 	@Column(name = "Id")
 	private Integer id;
 
-	@Column(name = "PurchaseOrderNo")
-	private String purchaseOrderNo;
 
-	
-	@OneToOne
-    @JoinColumn(name = "assetTypeId", nullable = false, updatable = false)
-    private AssetType assetType;
-	
-	
 	@Column(name="AssetId")
 	private int assetId;
 	@OneToOne
@@ -44,10 +37,10 @@ public class PurchaseOrder {
 	private VendorCreation vendorCreation;
 
 	@Column(name = "OrderDate")
-	private Date orderDate;
+	private LocalDate orderDate;
 
 	@Column(name = "DeliveryDate")
-	private Date deliveryDate;
+	private LocalDate deliveryDate;
 
 	// Mapping to Status table
 	@Column(name = "StatusId")
@@ -74,19 +67,14 @@ public class PurchaseOrder {
 	}
 
 
-	public void setAssetType(AssetType assetType) {
-		this.assetType = assetType;
-	}
-
+	
 	
 
-	public PurchaseOrder(Integer id, String purchaseOrderNo, AssetType assetType, int assetId,
-			AssetDefinition assetdefinition, Integer vendorId, VendorCreation vendorCreation, Date orderDate,
-			Date deliveryDate, Integer statusId, Status status) {
+	public PurchaseOrder(Integer id, AssetType assetType, int assetId,
+			AssetDefinition assetdefinition, Integer vendorId, VendorCreation vendorCreation, LocalDate orderDate,
+			LocalDate deliveryDate, Integer statusId, Status status) {
 		super();
 		this.id = id;
-		this.purchaseOrderNo = purchaseOrderNo;
-		this.assetType = assetType;
 		this.assetId = assetId;
 		this.assetdefinition = assetdefinition;
 		this.vendorId = vendorId;
@@ -97,13 +85,6 @@ public class PurchaseOrder {
 		this.status = status;
 	}
 
-	public String getPurchaseOrderNo() {
-		return purchaseOrderNo;
-	}
-
-	public void setPurchaseOrderNo(String purchaseOrderNo) {
-		this.purchaseOrderNo = purchaseOrderNo;
-	}
 
 
 
@@ -143,29 +124,23 @@ public class PurchaseOrder {
 		this.id = id;
 	}
 
-	public String getNumber() {
-		return purchaseOrderNo;
-	}
-
-	public void setNumber(String number) {
-		this.purchaseOrderNo = number;
-	}
 
 
 
-	public Date getOrderDate() {
+
+	public LocalDate getOrderDate() {
 		return orderDate;
 	}
 
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(LocalDate orderDate) {
 		this.orderDate = orderDate;
 	}
 
-	public Date getDeliveryDate() {
+	public LocalDate getDeliveryDate() {
 		return deliveryDate;
 	}
 
-	public void setDeliveryDate(Date deliveryDate) {
+	public void setDeliveryDate(LocalDate deliveryDate) {
 		this.deliveryDate = deliveryDate;
 	}
 
@@ -179,13 +154,11 @@ public class PurchaseOrder {
 
 	@Override
 	public String toString() {
-		return "PurchaseOrder [id=" + id + ", purchaseOrderNo=" + purchaseOrderNo + ", assetType=" + assetType
-				+ ", assetId=" + assetId + ", assetdefinition=" + assetdefinition + ", vendorId=" + vendorId
+		return "PurchaseOrder [id=" + id + ", assetId=" + assetId + ", assetdefinition=" + assetdefinition + ", vendorId=" + vendorId
 				+ ", vendorCreation=" + vendorCreation + ", orderDate=" + orderDate + ", deliveryDate=" + deliveryDate
 				+ ", statusId=" + statusId + ", status=" + status + ", getAssetId()=" + getAssetId()
-				+ ", getAssetdefinition()=" + getAssetdefinition() + ", getPurchaseOrderNo()=" + getPurchaseOrderNo()
-				+ ", getVendorId()=" + getVendorId() + ", getVendorCreation()=" + getVendorCreation() + ", getStatus()="
-				+ getStatus() + ", getId()=" + getId() + ", getNumber()=" + getNumber() + ", getOrderDate()="
+				+ ", getAssetdefinition()=" + getAssetdefinition() + ", getPurchaseOrderNo()=" +  ", getVendorId()=" + getVendorId() + ", getVendorCreation()=" + getVendorCreation() + ", getStatus()="
+				+ getStatus() + ", getId()=" + getId() + ", getNumber()=" + ", getOrderDate()="
 				+ getOrderDate() + ", getDeliveryDate()=" + getDeliveryDate() + ", getStatusId()=" + getStatusId()
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";

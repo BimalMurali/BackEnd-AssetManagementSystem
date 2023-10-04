@@ -22,11 +22,8 @@ public interface IVendorCreationRepository extends CrudRepository<VendorCreation
 	
 	@Modifying
 	@Transactional
-//	@Query("UPDATE VendorCreation v set v.isActive = false where v.id =:vendorId")
-//	public void deleteVendor(@Param("vendorId") int id);
-	
-	@Query("UPDATE com.enigma.entity.VendorCreation SET isActive=false where id=?1")
-	public void deleteVendor(int id);
+	@Query("UPDATE VendorCreation v SET v.isActive=false where v.id=:Id")
+	public void deleteVendor(@Param("Id") int id);
 
 	
 }
