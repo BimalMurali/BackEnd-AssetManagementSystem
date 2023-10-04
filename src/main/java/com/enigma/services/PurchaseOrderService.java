@@ -40,7 +40,7 @@ public class PurchaseOrderService implements IPurchaseOrderService {
 	@Override
 	public void deleteOrders(int id) {
 		// TODO Auto-generated method stub
-		purchaseOrderRepo.deleteById(id);
+		purchaseOrderRepo.deleteId(id);
 		
 		
 	}
