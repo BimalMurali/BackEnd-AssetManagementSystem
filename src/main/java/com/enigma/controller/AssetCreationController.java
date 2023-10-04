@@ -55,7 +55,7 @@ public class AssetCreationController {
 		
 		
         //disable or delete asset
-		@DeleteMapping("/deleteasset/{id}")
+		@PutMapping("/deleteasset/{id}")
 		public String deleteAssetCreation(@PathVariable int id) {
 			assetService.deleteAssetCreation(id);
 			String confirmationMessage = "Details deleted successfully";
