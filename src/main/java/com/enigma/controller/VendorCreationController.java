@@ -87,6 +87,8 @@ public class VendorCreationController {
 		public void deleteVendor(@PathVariable int id) {
 			vendorservice.deleteVendor(id);
 		}
+		
+		
 	//search by name
 	/*@GetMapping("/vendor/search/{name}")
 	public List<VendorCreation> getAllVendorsByName(@PathVariable String name,@RequestHeader(value="authorization",defaultValue="") String auth) throws AccessDeniedException {
