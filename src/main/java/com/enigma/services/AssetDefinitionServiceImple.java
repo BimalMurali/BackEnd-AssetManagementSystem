@@ -5,12 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//import com.enigma.common.Validation;
-//import com.nissan.dto.EmployeeDeptDTO;
 import com.enigma.entity.AssetDefinition;
 import com.enigma.repository.IAssetDefinitionRepository;
 @Service
-public class AssetDefinitionServiceImpl implements IAssetDefinitionService {
+public class AssetDefinitionServiceImple implements IAssetDefinitionService {
+
 
 	@Autowired
 	private IAssetDefinitionRepository assetDefRepo;
@@ -42,6 +41,8 @@ public class AssetDefinitionServiceImpl implements IAssetDefinitionService {
 		return assetDefRepo.save(asset);
 	}
 
+
+
 	
 //	public List<AssetDefinition> getEmployeeByName(String name) {
 //		// TODO Auto-generated method stub
@@ -55,5 +56,4 @@ public class AssetDefinitionServiceImpl implements IAssetDefinitionService {
 //		// TODO Auto-generated method stub
 //		return employeeRepo.findAllDTOEmployees();
 //		}
-
 }
