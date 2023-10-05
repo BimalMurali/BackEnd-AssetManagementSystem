@@ -15,15 +15,10 @@ public interface IVendorCreationService {
 		// get by id
 		public VendorCreation getVendorDetails(int id);
 
-		// delete
-		//public void deleteVendor(int id);
-
-		// search by name
-		//public List<VendorCreation> getVendorByName(String name);
 
 		// update by id
 		public VendorCreation updateVendor(VendorCreation vendor);
 
 		//delete vendor
-		public void deleteVendor(int id);
+		public void deleteVendors(int id);
 }

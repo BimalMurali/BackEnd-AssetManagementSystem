@@ -47,8 +47,8 @@ public class VendorServiceImple implements IVendorCreationService{
 	}
 
 
-	public void deleteVendor(int id) {
-		vendorrepo.deleteById(id);
+	public void deleteVendors(int id) {
+		vendorrepo.deleteId(id);
 		
 	}
 

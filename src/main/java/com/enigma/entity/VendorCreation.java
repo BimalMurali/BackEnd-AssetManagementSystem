@@ -1,4 +1,5 @@
 package com.enigma.entity;
+import java.time.LocalDate;
 import java.util.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,13 +30,15 @@ public class VendorCreation {
 	private AssetType assetType;
 	
 	@Column(name="validfrom",nullable=false,length=60)
-	private Date validFrom;
+	private LocalDate validFrom;
 	
 	@Column(name="validto",nullable=false,length=60)
-	private Date validTo;
+	private LocalDate validTo;
 	
 	@Column(name="address",nullable=false,length=60)
 	private String address;
+	
+	private boolean isActive=true;
 	
 	
 
@@ -46,7 +49,7 @@ public class VendorCreation {
 	
 	
 	public VendorCreation(Integer id, String vendorName, String type, Integer assettypeid, AssetType assetType,
-			Date validFrom, Date validTo, String address) {
+			LocalDate validFrom, LocalDate validTo, String address, boolean isActive) {
 		super();
 		this.id = id;
 		this.vendorName = vendorName;
@@ -56,6 +59,7 @@ public class VendorCreation {
 		this.validFrom = validFrom;
 		this.validTo = validTo;
 		this.address = address;
+		this.isActive = isActive;
 	}
 
 
@@ -109,22 +113,22 @@ public class VendorCreation {
 	}
 
 
-	public Date getValidFrom() {
+	public LocalDate getValidFrom() {
 		return validFrom;
 	}
 
 
-	public void setValidFrom(Date validFrom) {
+	public void setValidFrom(LocalDate validFrom) {
 		this.validFrom = validFrom;
 	}
 
 
-	public Date getValidTo() {
+	public LocalDate getValidTo() {
 		return validTo;
 	}
 
 
-	public void setValidTo(Date validTo) {
+	public void setValidTo(LocalDate validTo) {
 		this.validTo = validTo;
 	}
 
@@ -137,13 +141,27 @@ public class VendorCreation {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 
 
 	@Override
 	public String toString() {
 		return "VendorCreation [id=" + id + ", vendorName=" + vendorName + ", type=" + type + ", assettypeid="
 				+ assettypeid + ", assetType=" + assetType + ", validFrom=" + validFrom + ", validTo=" + validTo
-				+ ", address=" + address + "]";
-	}	
+				+ ", address=" + address + ", isActive=" + isActive + "]";
+	}
+
+
+	
 	
 }
