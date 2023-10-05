@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="AssetDefintion")
+@Table(name="AssetDefinition")
 public class AssetDefinition {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)

@@ -33,7 +33,7 @@ public class AssetDefinitionServiceImple implements IAssetDefinitionService {
 	//delete
 	@Override
 	public void deleteAsset(int id) {
-		assetDefRepo.deleteById(id);
+		assetDefRepo.deleteId(id);
 	}
 
 	

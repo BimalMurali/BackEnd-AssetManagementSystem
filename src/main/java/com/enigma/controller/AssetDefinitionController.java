@@ -39,12 +39,13 @@ public class AssetDefinitionController {
 //	private JwtUtil jwtUtil;
 	
 	
-//	list
+	//list
 //	@GetMapping("/assets")
 //	public List<AssetType> getAsset(@RequestHeader(value="authorization",defaultValue="")String auth) throws AccessDeniedException{
 //		//jwtUtil.verify(auth);
 //		return assetDefinitionService.getAsset();
 //	}
+	
 	@GetMapping("/assettype")
 	public List<AssetDefinition> getAsset(@RequestHeader(value="authorization",defaultValue="")String auth) throws AccessDeniedException{
 		//jwtUtil.verify(auth);

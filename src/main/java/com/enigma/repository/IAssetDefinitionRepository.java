@@ -35,7 +35,7 @@ public interface IAssetDefinitionRepository extends CrudRepository<AssetDefiniti
 	@Modifying
 	@Transactional
 	@Query("UPDATE AssetDefinition SET isActive = false WHERE id = :id")
-	public void deleteById(@Param("id") int id);
+	public void deleteId(@Param("id") int id);
 
 }
 
